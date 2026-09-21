@@ -1,4 +1,6 @@
 
+SQL*Plus: Release 11.2.0.1.0 Production on Mon Sep 07 00:41:01 2026
+
 Copyright (c) 1982, 2010, Oracle.  All rights reserved.
 
 Enter user-name: A147@db2021
