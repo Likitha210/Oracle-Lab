@@ -1,0 +1,110 @@
+
+SQL*Plus: Release 11.2.0.1.0 Production on Mon Sep 07 01:04:14 2026
+
+Copyright (c) 1982, 2010, Oracle.  All rights reserved.
+
+Enter user-name: A147@db2021
+Enter password:
+
+Connected to:
+Oracle Database 11g Release 11.2.0.1.0 - Production
+
+SQL> select * from  tab;
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+STUDENT8                       TABLE
+STUDENT7                       TABLE
+STUDENT6                       TABLE
+STUDENT5                       TABLE
+STUDENT4                       TABLE
+STUDENT3                       TABLE
+STUDENT2                       TABLE
+STUDENT11                      TABLE
+STUDENT1                       TABLE
+DEPT                           TABLE
+
+10 rows selected.
+
+SQL> select * from student11;
+
+REGNO      NAME            DOB       G COURS       YEAR DEPTNAME        MARKS
+---------- --------------- --------- - ----- ---------- ---------- ----------
+11249A147  LIKITHA         25-DEC-05 F AIML           3 CSE                88
+11249A124  HARI PRIYA                F                                     90
+11249A179  UMA             22-JAN-07 F AIML           3 CSE                89
+11249A095  CHANDANA        14-OCT-06 F AIML           3 CSE                92
+11249A181  SIRI                                         EEE                80
+11249A190  JYOTHI                                       EEE                94
+106        SURESH                                       IT                 95
+105        RAVI                                         ECE                81
+104        KAVI                                         CSE                88
+103        DIVYA                                        IT                 92
+102        SITA                                         ECE                78
+
+REGNO      NAME            DOB       G COURS       YEAR DEPTNAME        MARKS
+---------- --------------- --------- - ----- ---------- ---------- ----------
+101        ARUN                                         ECE                85
+
+12 rows selected.
+
+SQL> SELECT COUNT(*) AS TOTAL_STUDENTS
+  2
+SQL> select count(*) as total_count from student11;
+
+TOTAL_COUNT
+-----------
+         12
+
+SQL> select sum(marks) as sum_of_marks from student11;
+
+SUM_OF_MARKS
+------------
+        1052
+
+SQL> select min(marks) as lowest_marks from student11;
+
+LOWEST_MARKS
+------------
+          78
+
+SQL> select max(marks) as highest_marks from student11;
+
+HIGHEST_MARKS
+-------------
+           95
+
+SQL> select avg(marks) as average_marks from student11;
+
+AVERAGE_MARKS
+-------------
+   87.6666667
+
+SQL> select deptname ,avg(marks) as average_marks from student11 group by deptname;
+
+DEPTNAME   AVERAGE_MARKS
+---------- -------------
+                      90
+EEE                   87
+IT                  93.5
+CSE                89.25
+ECE           81.3333333
+
+SQL> select deptname ,count(*) as count from student11 group by deptname;
+
+DEPTNAME        COUNT
+---------- ----------
+                    1
+EEE                 2
+IT                  2
+CSE                 4
+ECE                 3
+
+SQL> select deptname ,count(*) as count from student11 group by deptname having count(*) > 1;
+
+DEPTNAME        COUNT
+---------- ----------
+EEE                 2
+IT                  2
+CSE                 4
+ECE                 3
